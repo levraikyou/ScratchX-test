@@ -8,7 +8,10 @@
         return {status: 2, msg: 'Ready'};
     };
 
-    ext.power = function(base, exponent) {
+    ext.power = function(base, exponent, callback) {
+        window.setTimeout(function() {
+            callback();
+        }, 2000);
         return Math.pow(base, exponent);
     };
 
