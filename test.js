@@ -9,8 +9,8 @@
         return {status: 2, msg: 'Ready'};
     };
 
-    ext.set_ready = function() {
-        ready = true;
+    ext.set_ready = function(r) {
+        ready = (r == "ready");
     }
     
     ext.when_ready = function() {
@@ -21,9 +21,12 @@
     var descriptor = {
         blocks: [
             // Block type, block name, function name, param1 default value, param2 default value
-            ['', 'set ready', 'set_ready'],
-            ['h', 'when ready', 'when_ready'],
-        ]
+            ['', 'set %m.ready', 'set_ready', 'ready'],
+            ['h', 'when ready', 'when_ready']
+        ],
+        menus: {
+            ready: ['ready','not ready']
+        }   
     };
 
     // Register the extension
