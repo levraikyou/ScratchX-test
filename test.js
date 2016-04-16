@@ -1,4 +1,5 @@
 (function(ext) {
+    var ready = false;
     // Cleanup function when the extension is unloaded
     ext._shutdown = function() {};
 
@@ -8,17 +9,21 @@
         return {status: 2, msg: 'Ready'};
     };
 
-    ext.power = function(base, exponent, callback) {
-        window.setTimeout(function() {
-            callback(Math.pow(base, exponent));
-        }, 2000);
-    };
-
+    ext.set_ready = function(r) {
+        ready = r;
+    }
+    
+    ext.when_ready = function() {
+        return ready;
+    }
+    
     // Block and block menu descriptions
     var descriptor = {
         blocks: [
             // Block type, block name, function name, param1 default value, param2 default value
-            ['R', '%n ^ %n', 'power', 2, 3],
+            ['', 'set ready', 'set_ready', true],
+            ['', 'set unready', 'set_ready', false],
+            ['h', 'when ready', 'when_ready'],
         ]
     };
 
