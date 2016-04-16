@@ -10,9 +10,8 @@
 
     ext.power = function(base, exponent, callback) {
         window.setTimeout(function() {
-            callback();
+            callback(Math.pow(base, exponent));
         }, 2000);
-        return Math.pow(base, exponent);
     };
 
     // Block and block menu descriptions
