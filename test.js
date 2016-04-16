@@ -19,7 +19,7 @@
     var descriptor = {
         blocks: [
             // Block type, block name, function name, param1 default value, param2 default value
-            ['r', '%n ^ %n', 'power', 2, 3],
+            ['R', '%n ^ %n', 'power', 2, 3],
         ]
     };
 
