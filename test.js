@@ -9,8 +9,8 @@
         return {status: 2, msg: 'Ready'};
     };
 
-    ext.set_ready = function(r) {
-        ready = r;
+    ext.set_ready = function() {
+        ready = true;
     }
     
     ext.when_ready = function() {
@@ -21,8 +21,7 @@
     var descriptor = {
         blocks: [
             // Block type, block name, function name, param1 default value, param2 default value
-            ['', 'set ready', 'set_ready', true],
-            ['', 'set unready', 'set_ready', false],
+            ['', 'set ready', 'set_ready'],
             ['h', 'when ready', 'when_ready'],
         ]
     };
